@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>서버로 파라미터 제출하기</title>
+</head>
+<body>
+	<h1>서버로 파라미터 제출하기</h1>
+	<h3>1. HttpServletRequest.getParameter("key") 이용해서 제출하기</h3>
+		
+		<!-- method = GET 일 경우 db에서 가져와 사람들에게 보여주기 
+			method = POST 일 경우 db에 저장하거나 수정하거나 삭제 전달하기
+		-->
+		<!-- 
+			param/main -> http://localhost:8081/param/param/main
+			param/test1 -> http://localhost:8081/param/param/test1
+			
+			/param/main -> http://localhost:8081/param/main 문제 발생
+			/param/test1 http://localhost:8081/param/main 문제 없이 실행
+						-> input 에 작성한 값을 확인하고 다시 input 페이지로 돌아오는 것
+						-> 값 전달하고 /param/main 페이지로 돌아오는 과정이 너무 빠르기 때문에
+							우리 눈에는 변화가 없는 것처럼 보이는 것
+			맨 앞에 /를 붙이지 않으면 Controller에 작성된 param이라는 공통 주소가 한 번 더 붙기 때문에
+			위와 같이 /param/param/test1, /param/param/main 주소가 변형되는 것
+		 -->
+	<form action="/param/test1" method="POST">
+		이름 : <input type="text" name="inputName"><br>
+		나이 : <input type="number" name="inputAge"><br>
+		주소 : <input type="text" name="inputAddress"><br>
+		<button>제출하기</button><!-- 버튼 기본 타입 submit -->
+	</form>
+	
+	<h3>@RequestParam 어노테이션을 이용
+		-낱개(단수, 독립된) 파라미터(매개변수) 컨트롤러에서 얻어오는 방법
+	</h3>
+	<form action="/param/test2" method="POST">
+		책 제목 : <input type="text" name="title"><br>
+		작성자 : <input type="text" name="writer"><br>
+		가격 : <input type="number" name="price"><br>
+		출판사 : <input type="text" name="publisher"><br>
+		<button>제출하기</button><!-- 버튼 기본타입 submit -->
+	</form>
+	
+	<h3>3. @RequestParam 어노테이션을 이용
+		- 여러 개 (복수, 다수) 파라미터(매개변수) 컨트롤러에서 얻어오는 방법
+	</h3>
+	<!-- checkbox는 선택한만큼 여러 개의 값을 가져올 수 있음 -->
+	<form action="/param/test3" method="post">
+	<!-- String[] 배열 값으로 가지고 온 케이스 -->
+		색상 :
+		RED <input type="checkbox" name="color" value="Red">
+		Green <input type="checkbox" name="color" value="Green">
+		Blue <input type="checkbox" name="color" value="Blue">
+		
+		<br><br>
+		<!-- List<String> 리스트 값으로 가지고 온 케이스 -->
+		과일 :
+		Apple <input type="checkbox" name="fruit" value="Apple">
+		Banana <input type="checkbox" name="fruit" value="Banana">
+		Orange <input type="checkbox" name="fruit" value="Orange">
+		
+		<br><br>
+		
+		상품명 : <input type="text" name="productName"><br>
+		유통기한 : <input type="text" name="productDate"><br>
+		
+		<button>제출하기</button>
+	</form>
+	
+	<h3>4. @ModelAttribute를 이용한 파라미터 언어오기</h3>
+	
+	<form action="/param/test4" method="post">
+		ID : <input type="text" name="memberId"> <br>
+		PW : <input type="text" name="memberPw"> <br>
+		NAME : <input type="text" name="memberName"> <br>
+		AGE : <input type="text" name="memberAge"> <br>
+		<button>제출하기</button>
+	</form>
+	
+	<h3>2. @RequestParam 어노테이션을 이용해서 낱개로 값 가져오기
+		--> ParamTowController 생성해서 작성
+	</h3>
+	<form action="/param2/test2" method="post">
+		과자 제목 : <input type="text" name="snackName"><br>
+		회사 : <input type="text" name="snackCompany"><br>
+		가격 : <input type="number" name="snackPrice"><br>
+		선호 순위 : <input type="text" name="snackLike"><br>
+		<button>제출하기</button>
+	</form>
+	
+	<h3>3. @RequestParam 어노테이션 이용해서 다수 값 가져오기
+		--> ParamTowController 생성해서 작성
+		
+		좋아하는 과자 String[]
+		선호하는 회사 List<String>
+	</h3>
+	<form action="/param2/likeSnackCompany" method="post">
+		좋아하는 과자 :
+			맛동산 <input type="checkbox" name="likeSnack" value="matdongsan">
+			베베 <input type="checkbox" name="likeSnack" value="bebe">
+			썬칩 <input type="checkbox" name="likeSnack" value="sunChip">
+			<button>제출하기</button>
+			<br><br>
+		선호하는 회사 :
+			올이온<input type="checkbox" name="likeCompany" value="olion">
+			햇에<input type="checkbox" name="likeCompany" value="haet">
+			<button>제출하기</button>
+	</form>
+</body>
+</html>
