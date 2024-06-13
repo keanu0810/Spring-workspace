@@ -1,14 +1,8 @@
 package com.example.demo.model.dto;
 
-import org.springframework.stereotype.Controller;
+import lombok.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-
+//toString getter setter noArgs AllArgs
 @ToString
 @Getter
 @Setter

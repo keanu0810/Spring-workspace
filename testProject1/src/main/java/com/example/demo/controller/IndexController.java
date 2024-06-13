@@ -14,12 +14,12 @@ public class IndexController {
 		 * 설정이 들어있음
 		 * 
 		 * classpath : src/main/resources
-		 * 기본경로에 앞에 붙여진 /templates/ 폴더가 html 을 담는 공간
+		 * 기본경로에 앞에 붙여진 /templates/ 폴더가 html을 담는 공간
 		 * 파일명 마지막에는 항상 .html 이 붙는다.
-		 */
+		 * */
 		// src/main/resources/templates/test.html 로 이동하겠다 라는 표시
 		return "test";
 		//return "html파일명";
-		//돌아가기 "html파일명";
+		//돌아가기 "htnl파일명";
 	}
 }

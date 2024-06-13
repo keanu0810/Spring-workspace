@@ -8,37 +8,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
+//8085 에서 실행
+//->Slf4j 추가해주고 log.info 접속확인 log.debug 만들어주기
 @Controller
-@RequestMapping("param")// ParameterConstroller 밑에는 모두 자동으로 맨 앞에 param 붙음
+@RequestMapping("param") //ParameterController 밑에는 모두 자동으로 맨 앞에 param 붙음
 @Slf4j
 public class ParameterController {
-
+	
 	@GetMapping("main")
 	public String paramMain() {
-		return "param/param-main";
+		return "param/param-main"; //폴더 param 안에 있는 param-main.html 파일 바라보기
 	}
-	
-	
 	
 	@PostMapping("test1")
 	public String paramTest1(HttpServletRequest req) {
 		String inputName = req.getParameter("inputName");
 		String inputAddress = req.getParameter("inputAddress");
-		int inputAge = Integer.parseInt(req.getParameter("inputAge"));
-		
-		
-		log.info("접속확인");
+		int inputAge = Integer.parseInt(req.getParameter("inputAge"));//--> String 에서 int 로 형변환
+		log.info("시작했는지 확인");
 		log.info("이름확인 : " + inputName);
-		log.info("나이확인 : " + inputAge);
+		log.info("숫자확인 : " + inputAge);
 		log.info("주소확인 : " + inputAddress);
 		
-		log.info("=========================");
-		log.debug("로그로 이름확인 : " + inputName);
-		log.debug("로그로 나이확인 : " + inputAge);
-		log.debug("로그로 주소확인 : " + inputAddress);
-		
-		// --> String 에서 int 로 형변환
+		log.info("=================================");
+		log.debug("이름확인 : " + inputName);
+		log.debug("숫자확인 : " + inputAge);
+		log.debug("주소확인 : " + inputAddress);
 		return "redirect:/param/main"; // 작성 다 되면 메인으로 돌아가기
-		
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
