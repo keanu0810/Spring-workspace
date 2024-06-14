@@ -126,7 +126,24 @@ public class ExampleController {
 	
 	
 	
-	
+	@GetMapping("ex4")
+	public String ex4(Model model) {
+		//아직 std로 전달해준 값이 없기 때문에 th:unless 안에 작성해준
+		// std 없음이 뜨는 것이 정상
+		
+		StudentDTO std = new StudentDTO("7890","피카츄", 22);
+		model.addAttribute("std",std);
+		
+		// 1234 둘리 33
+		MemberDTO mem = new MemberDTO("1234","둘리","33");
+		model.addAttribute("mem",mem);
+		
+		model.addAttribute("testIf","테스트중");
+		
+		
+		
+		return "example/ex4";
+	}
 	
 	
 	
