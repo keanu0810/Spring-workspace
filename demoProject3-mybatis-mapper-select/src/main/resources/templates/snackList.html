@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>과자</title>
+<title>snackList</title>
+<link rel="stylesheet" href="/css/snackAndCompanyList.css">
 </head>
 <body>
-	<h1>snackLis</h1>
+	<h1>과자리스트</h1>
 	<table border="1">
 		<thead>
 			<tr>
@@ -17,15 +18,20 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="	s  :	${snackList}">
-				<td th:text="${s.seacks_id}"></td>
-				<td th:text="${s.seacks_name}"></td>
+			<tr th:each="  s    :     ${snackList}">
+				<td th:text="${s.snack_id}"></td>
+				<td th:text="${s.snack_name}"></td>
 				<td th:text="${s.price}"></td>
 				<td th:text="${s.company_name}"></td>
 				<td th:text="${s.company_phone}"></td>
+			</tr>
 		</tbody>
-
 	</table>
 	<a href="/">메인으로 돌아가기</a>
 </body>
 </html>
+
+
+
+
+
