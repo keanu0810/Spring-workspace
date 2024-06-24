@@ -8,7 +8,7 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.khmall</groupId>
 	<artifactId>demoProject3-mybatis-mapper-select</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demoProject3-mybatis-mapper-select</name>
