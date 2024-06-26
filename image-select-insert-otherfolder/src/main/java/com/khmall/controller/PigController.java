@@ -21,21 +21,21 @@ public class PigController {
 	public String getAllPigs(Model model) { 
 		List<Pig> pigs = pigService.getAllPigs();
 		model.addAttribute("pigs",pigs);
-		return "돼지모두보는html";
+		return "pigAllList";
 	}
 	
 	@GetMapping("/pig_detail/{pig_id}")
 	public String getPigById(Model model, @PathVariable int pig_id) {
 		Pig pig = pigService.getPigById(pig_id);
 		model.addAttribute("pig",pig);
-		return "돼지상세보기html";
+		return "pigDetail";
 	}
 	
 	
 	@GetMapping("/uploadPig")
 	public String uploadPig(Model model) {
 		model.addAttribute("p", new Pig());
-		return "돼지이미지업로드html";
+		return "imgUpload";
 	}
 	
 	@PostMapping("/uploadPig")
