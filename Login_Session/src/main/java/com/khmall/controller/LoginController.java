@@ -18,6 +18,13 @@ import com.khmall.service.MemberService;
 
 import jakarta.servlet.http.HttpSession;
 
+
+// api(/로 된 Mapping 숫자) 3개  get api 2개  post api 1개
+/*
+ * @GetMapping("/login")
+ * @PostMapping("/login")
+ * @GetMapping("/logout")
+ * */
 @Controller
 public class LoginController {
 
