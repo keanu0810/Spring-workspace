@@ -13,10 +13,7 @@ import com.kh.test.service.GoodsService;
 @Controller
 public class GoodsController {
 	
-	@GetMapping("/")
-	public String htmlStart() {
-		return "index";
-	}
+	
 	
 	@Autowired
 	private GoodsService goodsService;
